@@ -1,7 +1,5 @@
 //* Main C++ file
 
-//TODO: make turn based combat i guess?
-
 // Imports
 #include <iostream>
 #include <string>
@@ -115,9 +113,14 @@ public:
             if (tookDamage)
             {
                 takeDamage(incomingDamage);
+                printHealth();
+            }
+            else
+            {
+                cout << name << ": I deflected the damage\n";
+                printHealth();
             }
         // }
-        printHealth();
     }
 };
 
