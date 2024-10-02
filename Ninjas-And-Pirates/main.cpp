@@ -26,9 +26,15 @@ public:
         this -> defenseMitigation = defenseMitigation;
     }
 
+    // others
     void setName(string setName)
     {
         name = setName;
+    }
+
+    void talk(string text)
+    {
+        cout << "I'm " << name << ". " << text << endl;
     }
 
     // getters and printers
@@ -156,10 +162,15 @@ int main()
     jack.printName();
     cout << endl;
 
+
+    // round 1 talking
+    jack.talk("This is my ship and you're tresspassing.");
+    genji.talk("Nah, I like it here. If you want me to skedaddle we're throwing hands.\n");
+
     // Round 1 (how it's different from the other rounds: genji deflects instead of attacking)
     cout << "Round 1:\n";
 
-    // fighting
+    // round 1 fighting
     jack.attack();
     genji.defend(jack.getAttackPower());
     cout << endl;
