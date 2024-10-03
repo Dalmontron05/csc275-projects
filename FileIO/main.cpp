@@ -14,23 +14,30 @@ int main()
     try
     {
         // Try to open the input file
-        ifstream infile("example.txt");
+        ifstream infile("Mp4-To-Mov-Old.sh");
         if (!infile.is_open())
         {
             throw runtime_error("Error: Unable to open the input file");
         }
 
         // Try to open the output file
-        ofstream outfile("output.txt");
+        ofstream outfile("Mp4-To-Mov.sh");
         if (!outfile.is_open())
         {
             throw runtime_error("Error: Unable to open the output file");
         }
 
+        char target = ';';
+
         while (getline(infile, line))
         {
-            cout << line << endl;
-            outfile << line << endl; // write to output file
+            for (size_t i = 0; i < line.length(); ++i)
+            {
+                if (line[i] == target)
+                {
+                    std::cout << "Character found at position: " << i << std::endl;
+                }
+            }
         }
         // close the files
         infile.close();

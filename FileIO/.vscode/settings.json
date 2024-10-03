@@ -4,6 +4,7 @@
         "fstream": "cpp",
         "iostream": "cpp",
         "numbers": "cpp",
-        "optional": "cpp"
+        "optional": "cpp",
+        "functional": "cpp"
     }
 }
