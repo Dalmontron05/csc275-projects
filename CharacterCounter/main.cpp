@@ -1,6 +1,7 @@
 //* Main C++ file
 // Counts how many times a character is present within a file
-//TODO: write results to file
+//TODO: let user input their own filename
+//TODO: check for usre input (like if they don't input a character)
 
 // Imports
 #include <iostream>
@@ -15,11 +16,14 @@ int main()
     // Introduction
     cout << "This Program will count the # of times a specific character is present within a file\n";
 
-    string fileContent;
     try
     {
         // Variables
+        string fileContent;
         int targetAmount = 0;
+        ifstream infile("Mp4-To-Mov.sh");
+        ofstream outfile("Output.txt");
+
 
         // Asks user for input
         cout << "Please enter a character: \n";
@@ -27,20 +31,25 @@ int main()
         cin >> target;
         cin.ignore(1000, '\n');
         
-        // Try to open file
-        ifstream file("Mp4-To-Mov.sh");
-        if (!file.is_open())
+
+        // Try to open files
+        if (!infile.is_open())
         {
             throw runtime_error("Error: Unable to open the input file");
         }
+        
+        if (!outfile.is_open())
+        {
+            throw runtime_error("Error: Unable to open the output file");
+        }
 
 
-        // Searches file for target
         cout << "Contents of File:\n";
-        while (getline(file, fileContent)) // Saves content of file to fileContent
+        while (getline(infile, fileContent)) // Saves content of file to fileContent
         {
             cout << fileContent << endl;
-            // for each instance of target...
+
+            // Searches files for target
             for (size_t i = 0; i < fileContent.length(); i++)
             {
                 if (fileContent[i] == target)
@@ -51,10 +60,16 @@ int main()
             }
         }
         cout << "End of File\n";
+
+        // Print how many times we found target character and save it to file
+
         cout << "Found '" << target << "' " << targetAmount << " times.\n";
+        outfile << "Found '" << target << "' " << targetAmount << " times.\n";
+
 
         // close the files
-        file.close();
+        infile.close();
+        outfile.close();
     }
     catch (const ifstream::failure& e)
     {
