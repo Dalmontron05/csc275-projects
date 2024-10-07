@@ -1,5 +1,6 @@
 //* Main C++ file
 // Counts how many times a character is present within a file
+//TODO: write results to file
 
 // Imports
 #include <iostream>
