@@ -11,12 +11,20 @@ using namespace std;
 // Functions
 int main()
 {
+    // Introduction
+    cout << "This Program will count the # of times a specific character is present within a file\n";
+
     string fileContent;
     try
     {
         // Variables
-        char target = ';';
         int targetAmount = 0;
+
+        // Asks user for input
+        cout << "Please enter a character: \n";
+        char target;
+        cin >> target;
+        cin.ignore(1000, '\n');
         
         // Try to open file
         ifstream file("Mp4-To-Mov.sh");
@@ -27,8 +35,10 @@ int main()
 
 
         // Searches file for target
+        cout << "Contents of File:\n";
         while (getline(file, fileContent)) // Saves content of file to fileContent
         {
+            cout << fileContent << endl;
             // for each instance of target...
             for (size_t i = 0; i < fileContent.length(); i++)
             {
@@ -39,6 +49,7 @@ int main()
                 }
             }
         }
+        cout << "End of File\n";
         cout << "Found '" << target << "' " << targetAmount << " times.\n";
 
         // close the files
@@ -56,6 +67,5 @@ int main()
     {
         cerr << "An unexpected error occured";
     }
-    
 }
 
