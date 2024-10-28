@@ -10,10 +10,10 @@ using namespace std;
 That's helpful in complex expressions, generic programming, and with templates.*/
 
 // Function with return pair
-// pair<int, string>getPair()
-// {
-//     return (41, "Answer");
-// }
+pair<int, string>getPair()
+{
+    return make_pair(41, "Answer");
+}
 
 // Template function
 template<typename T, typename U>
@@ -51,8 +51,8 @@ int main()
     cout << "First element via iterator: " << *it << endl;
 
     // auto with function return types
-    // auto pairResult = getPair();
-    // cout << "Pair result: " << pairResult.first << ", " << pairResult.second << endl;
+    auto pairResult = getPair();
+    cout << "Pair result: " << pairResult.first << ", " << pairResult.second << endl;
 
     // auto with templates
     auto sumInt = add(3, 4);
