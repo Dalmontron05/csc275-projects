@@ -21,7 +21,7 @@ int main()
     // Declare and initalize a pointer
     int* intPtr = nullptr;
 
-    // Declare and inittialize a variable
+    // Declare and initialize a variable
     int myNumber = 42;
 
     // Assign the address if the vairable to the pointer
@@ -33,7 +33,7 @@ int main()
     cout << "Address stored in intPtr: " << intPtr << endl;
     cout << "Value pointed my intPtr: " << *intPtr << endl;
 
-    // change the value of the variable throught the pointer
+    // change the value of the variable through the pointer
     *intPtr = 100;  // myNumber = 100
     cout << "Updated value of myNumber = " << myNumber << endl;
 
@@ -44,7 +44,7 @@ int main()
     // print the dynamically allocated value
     cout << "Dynamically allocated value : " << *dynamicIntPtr << endl;
 
-    // Release dynamicall allocated memory using 'delete'
+    // Release dynamically allocated memory using 'delete'
     delete dynamicIntPtr;
 
     // with array
